@@ -121,3 +121,130 @@ The loop is executed **2 times** before the condition becomes false.
 So, the correct option is:
 
 ### ✅ **C. 2**
+
+
+- Problem 3
+
+## 📄 Question:
+What will be the output of the following pseudocode for `a = 8`, `b = 8`?
+
+```plaintext
+1.  Integer funn(Integer a, Integer b)
+2.      if (a && b && a + b > 0)
+3.          return a + funn(a - 2, b - 2) + b
+4.      End if
+5.      return a ^ b
+6.  End function funn()
+```
+
+### Notes:
+- `&&` is the logical AND operator — returns true (1) if all conditions are true.
+- `^` is the bitwise XOR operator.
+
+---
+
+## 🔍 Options:
+- A. 39  
+- B. 46  
+- C. 48  
+- D. 40  
+
+---
+
+## 🧠 Approach:
+
+We analyze the recursion with `a = 8`, `b = 8`.
+
+### Base Condition:
+```plaintext
+if (a && b && a + b > 0)
+```
+This means recursion will continue **as long as both `a` and `b` are non-zero and their sum is > 0**.
+
+Otherwise, it returns `a ^ b`.
+
+---
+
+## 🧾 Dry Run (Recursive Tree):
+
+Let's evaluate `funn(8, 8)`:
+
+```plaintext
+funn(8,8) = 8 + funn(6,6) + 8
+funn(6,6) = 6 + funn(4,4) + 6
+funn(4,4) = 4 + funn(2,2) + 4
+funn(2,2) = 2 + funn(0,0) + 2
+funn(0,0) = 0 ^ 0 = 0
+```
+
+### Now unwind the recursion:
+
+```plaintext
+funn(2,2) = 2 + 0 + 2 = 4
+funn(4,4) = 4 + 4 + 4 = 12
+funn(6,6) = 6 + 12 + 6 = 24
+funn(8,8) = 8 + 24 + 8 = 40
+```
+
+---
+
+## 🖨️ Final Output:
+- `funn(8, 8)` returns **40**
+
+---
+
+## ✅ Correct Answer:
+### **D. 40**
+
+-Problem 4
+
+
+## 📄 Question:
+What will be the output of the following pseudocode?
+
+```plaintext
+1.  Integer a, b
+2.  Set a = 3, b = 3
+3.  a = b
+4.  if(1 ^ 1)
+5.      a = 1
+6.  Else
+7.      b = 2
+8.  End if
+9.  Print a + b
+```
+
+---
+
+## 🔍 Options:
+- A. 16  
+- B. 1  
+- C. 5  
+- D. 6  
+
+---
+
+## 🧠 Key Concepts:
+
+- `^` is the **bitwise XOR** operator.
+  - `1 ^ 1 = 0` (since both bits are the same, XOR returns 0)
+- `if(x)` executes when `x` is non-zero.
+  - Since `1 ^ 1 = 0`, the `if` condition fails → `else` block runs.
+
+---
+
+## 🧾 Dry Run:
+
+1. `a = 3`, `b = 3`
+2. `a = b` → `a = 3`
+3. Evaluate `if(1 ^ 1)` → `0` → **false**
+4. Execute `else`: `b = 2`
+5. Final values:
+   - `a = 3`
+   - `b = 2`
+6. Output: `a + b = 3 + 2 = 5`
+
+---
+
+## ✅ Correct Answer:
+### **C. 5**
